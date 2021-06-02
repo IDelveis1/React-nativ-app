@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {View, TextInput, StyleSheet, Button, Alert} from 'react-native';
+import { THEME } from '../theme';
 
 
 export const Todobar = ({onSubmit}) => {
@@ -26,7 +27,7 @@ const onHandleSubmit = () => {
 
 const styles = StyleSheet.create({
     input: {
-        borderBottomColor: 'blue',
+        borderBottomColor: THEME.MAIN_COLOR,
         borderBottomWidth: 2,
         borderStyle: 'solid',
         width: '70%',

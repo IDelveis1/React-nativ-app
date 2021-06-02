@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import { THEME } from '../theme';
 
 
 export const Navbar = (props) => {
@@ -16,7 +17,7 @@ export const Navbar = (props) => {
 const styles = StyleSheet.create({
     navbar: {
         height: 80,
-        backgroundColor: 'blue',
+        backgroundColor: THEME.MAIN_COLOR,
         alignItems: 'center',
         justifyContent: 'flex-end',
         paddingBottom: 5,
