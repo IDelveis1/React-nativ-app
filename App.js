@@ -16,6 +16,17 @@ const addTodo = (title) => {
   setTodo(prev => [...prev, {id: Date.now().toString(), title}])
 }
 
+const onSave = (id, title) => {
+  setTodo(old => old.map(item => {
+      if (item.id === id) {
+        item.title = title
+      }
+      return item
+  })
+  )
+
+}
+
 const removeTodo = (id) => {
   const todos = todo.find(t => t.id === id)
   Alert.alert(
@@ -37,7 +48,7 @@ const removeTodo = (id) => {
 let content = <MainScreen removeTodo={removeTodo} addTodo={addTodo} todo={todo} onOpen={setTodoId}/>
 
 if (todoId) {
-  content = <TodoScreen goBack={() => setTodoId(null)} todo={ todo.find(item => item.id === todoId) } onRemove={removeTodo} />
+  content = <TodoScreen goBack={() => setTodoId(null)} todo={ todo.find(item => item.id === todoId) } onRemove={removeTodo} onSave={onSave}/>
 }
 
   return (

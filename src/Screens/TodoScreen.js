@@ -13,9 +13,14 @@ export const TodoScreen = (props) => {
         return props.onRemove(props.todo.id)
     }
 
+    const onSaveHandler = (title) => {
+        props.onSave(props.todo.id, title)
+        editModal(false)
+    }
+
     return (
         <View>
-            <EditModal visible={modal} onCancel={() => editModal(false)}></EditModal>
+            <EditModal visible={modal} onCancel={() => editModal(false)} title={props.todo.title} onSave={onSaveHandler}></EditModal>
             <AppCard style={styles.card}>
                 <Text style={styles.title}>{props.todo.title}</Text>
                 <Button title='Ред.' onPress={() => editModal(true)}></Button>
